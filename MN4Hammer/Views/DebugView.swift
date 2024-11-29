@@ -8,7 +8,7 @@
 import SwiftUI
 import AppKit
 
-struct ContentView: View {
+struct DebugView: View {
     @State private var appName: String = "MarginNote 4"
     @State private var buttonIndex: String = "0"
     @State private var result: String = "等待结果..."

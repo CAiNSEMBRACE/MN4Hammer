@@ -12,12 +12,12 @@ struct RootView: View {
         NavigationSplitView {
             //侧边栏
             List {
-                NavigationLink("Debug", destination: ContentView())
+                NavigationLink("Debug", destination: DebugView())
                 NavigationLink("信息", destination: InfoView())
             }
             .navigationTitle(Text("菜单"))
         } detail: {
-            ContentView()
+            DebugView()
         }
     }
 }
