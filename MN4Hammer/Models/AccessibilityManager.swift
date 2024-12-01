@@ -44,9 +44,33 @@ class AccessibilityManager {
     }
     
     //通过app元素获取聚焦窗口
-    func getFocusedWindow(in appElement: AXUIElement) -> AXUIElement? {
+    func getFocusedWindow(from application: AXUIElement) -> AXUIElement? {
+        var focusedWindow: CFTypeRef?
+        let error = AXUIElementCopyAttributeValue(application, kAXFocusedWindowAttribute as CFString, &focusedWindow)
+        guard error == .success else {
+            print("Failed to retrieve focused window. Error code: \(error.rawValue)")
+            return nil
+        }
         
-        return nil
+        let window = focusedWindow as! AXUIElement
+        guard "AXWindow" == getElementRole(window) else {
+            return nil
+        }
+        
+        return window
+    }
+    
+    // 检查元素是否被聚焦, 一般情况下检查window元素
+    func isElementFocused(_ element: AXUIElement) -> Bool {
+        var value: CFTypeRef?
+        let error = AXUIElementCopyAttributeValue(element, kAXFocusedAttribute as CFString, &value)
+        
+        if error == .success, let isFocused = value as? Bool {
+            return isFocused
+        } else {
+            print("Failed to retrieve AXFocused attribute. Error code: \(error.rawValue)")
+            return false
+        }
     }
     
     //检查element是否有效
@@ -72,8 +96,8 @@ class AccessibilityManager {
             return false
         }
     }
-
-    //检查传入element是否支持点击事件
+    
+    //检查element是否支持点击事件
     func isPressable(_ element: AXUIElement) -> Bool {
         var actions: CFArray?
         let result = AXUIElementCopyActionNames(element, &actions)
@@ -84,4 +108,112 @@ class AccessibilityManager {
         return false
     }
     
+    //获取元素Size, CGSize格式, 伴随多种测试
+    func getElementSize(_ button: AXUIElement) -> CGSize? {
+        var sizeValue: CFTypeRef?
+
+        // 获取 kAXSizeAttribute 属性值
+        let sizeError = AXUIElementCopyAttributeValue(button, kAXSizeAttribute as CFString, &sizeValue)
+        guard sizeError == .success, let axValue = sizeValue else {
+            print("无法通过kAXSizeAttribute获取到AXSize数据: \(sizeError.rawValue)")
+            return nil
+        }
+        
+        //检查数据格式
+        guard AXValueGetType(axValue as! AXValue) == .cgSize else {
+            print("axValue并不是CGSize格式数据.")
+            return nil
+        }
+        
+        //提取数据
+        var size = CGSize.zero
+        guard AXValueGetValue(axValue as! AXValue, .cgSize, &size) else {
+            print("无法从 AXValue 中提取 CGSize.")
+            return nil
+        }
+        
+        return size
+    }
+    
+    //获取元素Frame, CGRect格式
+    func getElementFrameWithFrameAttribute(_ element: AXUIElement) -> CGRect? {
+        var frameValue: CFTypeRef?
+        let frameError = AXUIElementCopyAttributeValue(element, "AXFrame" as CFString, &frameValue)
+
+        if frameError == .success, let axValue = frameValue, AXValueGetType(axValue as! AXValue) == .cgRect {
+            var frame = CGRect.zero
+            AXValueGetValue(axValue as! AXValue, .cgRect, &frame)
+            return frame
+        }
+
+        return nil
+    }
+    
+    // 获取获取元素role数据
+    func getElementRole(_ element: AXUIElement) -> String? {
+        
+        var roleValue: CFTypeRef?
+        let roleError = AXUIElementCopyAttributeValue(element, kAXRoleAttribute as CFString, &roleValue)
+        if roleError == .success, let role = roleValue as? String{
+            return role
+        }
+        return nil
+    }
+    
+    //检查element支持的参数获取, 供测试使用
+    func getElementAttributes(_ element: AXUIElement) {
+        var attributes: CFArray?
+        let result = AXUIElementCopyAttributeNames(element, &attributes)
+        
+        if result == .success, let attrArray = attributes as? [CFString] {
+            print("元素支持参数: \(attrArray)")
+        } else {
+            print("获取参数失败: \(result.rawValue)")
+        }
+    }
+    
+    /// 递归获取视图层级信息
+    /// 性能消耗极大, 仅供测试使用
+    func getElementHierarchy(in element: AXUIElement, depth: Int, maxDepth: Int) -> String {
+        guard depth <= maxDepth else { return "" }
+        
+        var output = String(repeating: "  |", count: depth - 1) // 缩进
+        output += "- 层级 \(depth):\n"
+        
+        // 获取元素的角色
+        var role: CFTypeRef?
+        let roleError = AXUIElementCopyAttributeValue(element, kAXRoleAttribute as CFString, &role)
+        let roleDescription = (roleError == .success && role != nil) ? (role as! String) : "未知角色"
+        output += String(repeating: "  |", count: depth) + "角色: \(roleDescription)\n"
+        
+        // 获取元素的标题
+        var title: CFTypeRef?
+        let titleError = AXUIElementCopyAttributeValue(element, kAXTitleAttribute as CFString, &title)
+        if titleError == .success, let title = title as? String {
+            output += String(repeating: "  |", count: depth) + "标题: \(title)\n"
+        }
+        
+        // 获取元素的尺寸
+        var sizeValue: CFTypeRef?
+        let sizeError = AXUIElementCopyAttributeValue(element, kAXSizeAttribute as CFString, &sizeValue)
+        if sizeError == .success, let size = sizeValue as? CGSize {
+            output += String(repeating: "  |", count: depth) + "尺寸: \(size.width) x \(size.height)\n"
+        } else {
+            output += String(repeating: "  |", count: depth) + "尺寸: 无法访问或无尺寸属性。\n"
+        }
+        
+        // 获取子视图
+        var childrenValue: CFTypeRef?
+        let childrenError = AXUIElementCopyAttributeValue(element, kAXChildrenAttribute as CFString, &childrenValue)
+        if childrenError == .success, let childrenArray = childrenValue as? [AXUIElement] {
+            output += String(repeating: "  |", count: depth) + "子视图数量: \(childrenArray.count)\n"
+            for child in childrenArray {
+                output += getElementHierarchy(in: child, depth: depth + 1, maxDepth: maxDepth)
+            }
+        } else {
+            output += String(repeating: "  |", count: depth) + "无子视图或无法访问子视图。\n"
+        }
+        
+        return output
+    }
 }

@@ -12,6 +12,7 @@ import CoreFoundation
 
 @main
 struct MN4HammerApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
         WindowGroup {

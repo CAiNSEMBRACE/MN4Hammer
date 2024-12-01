@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  DebugView.swift
 //  MN4Hammer
 //
 //  Created by LinAn on 2024/11/26.
@@ -23,12 +23,20 @@ struct DebugView: View {
                     result = getWindowInfo(for: appName)
                 }
                 .padding()
-                Button("展示按钮同级信息") {
+                Button("展示笔刷按钮信息") {
                     result = getFourthLayerInfo(appName)
                 }
                 .padding()
-                Button("展示笔刷按钮信息") {
-                    
+                
+                Button("Objective-C异常测试") {
+                    // 模拟 Objective-C 异常崩溃
+                    NSException(name: .genericException, reason: "Test Objective-C Exception", userInfo: nil).raise()
+                }
+                .padding()
+
+                Button("信号崩溃测试") {
+                    // 模拟信号崩溃
+                    abort()
                 }
                 .padding()
                 
@@ -54,6 +62,8 @@ struct DebugView: View {
         }
         .padding()
     }
+    
+    
     
     //用于测试点击按钮
     func action4DebugOnly() {
@@ -364,29 +374,31 @@ struct DebugView: View {
         }
     }
     
-    //伴随检测通过AXSize获取CGSize
+    //通过AXSize获取CGSize, 伴随多种测试
     func getButtonSizeWithSizeAttribute(_ button: AXUIElement) -> CGSize? {
         var sizeValue: CFTypeRef?
 
         // 获取 kAXSizeAttribute 属性值
         let sizeError = AXUIElementCopyAttributeValue(button, kAXSizeAttribute as CFString, &sizeValue)
-
-        if sizeError == .success, let axValue = sizeValue {
-            // 确认 AXValue 的类型是 CGSize
-            if AXValueGetType(axValue as! AXValue) == .cgSize {
-                var size = CGSize.zero //用于初始化一个长宽均为0的CGSize
-                if AXValueGetValue(axValue as! AXValue, .cgSize, &size) {
-                    return size
-                } else {
-                    print("Failed to extract CGSize from AXValue")
-                }
-            } else {
-                print("AXValue is not of type CGSize")
-            }
-        } else {
-            print("Failed to retrieve kAXSizeAttribute: \(sizeError.rawValue)")
+        guard sizeError == .success, let axValue = sizeValue else {
+            print("无法通过kAXSizeAttribute获取到AXSize数据: \(sizeError.rawValue)")
+            return nil
         }
-        return nil
+        
+        //检查数据格式
+        guard AXValueGetType(axValue as! AXValue) == .cgSize else {
+            print("axValue并不是CGSize格式数据.")
+            return nil
+        }
+        
+        //提取数据
+        var size = CGSize.zero
+        guard AXValueGetValue(axValue as! AXValue, .cgSize, &size) else {
+            print("无法从 AXValue 中提取 CGSize.")
+            return nil
+        }
+        
+        return size
     }
     
     func getElementFrameWithFrameAttribute(_ element: AXUIElement) -> CGRect? {
@@ -401,7 +413,6 @@ struct DebugView: View {
 
         return nil
     }
-    
     
     /// 递归获取视图层级信息
     func getElementHierarchy(_ element: AXUIElement, depth: Int, maxDepth: Int) -> String {
