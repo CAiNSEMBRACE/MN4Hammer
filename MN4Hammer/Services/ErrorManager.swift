@@ -5,7 +5,6 @@
 //  Created by LinAn on 2024/12/1.
 //
 
-
 import Foundation
 
 enum AppError: Error {
@@ -16,9 +15,9 @@ enum AppError: Error {
 
     var description: String {
         switch self {
-        case .invalidInput(let reason): return "Invalid Input: \(reason)"
-        case .accessibilityFailure(let reason): return "Accessibility Failure: \(reason)"
-        case .backgroundTaskError(let reason): return "Background Task Error: \(reason)"
+        case let .invalidInput(reason): return "Invalid Input: \(reason)"
+        case let .accessibilityFailure(reason): return "Accessibility Failure: \(reason)"
+        case let .backgroundTaskError(reason): return "Background Task Error: \(reason)"
         case .unknown: return "Unknown Error"
         }
     }

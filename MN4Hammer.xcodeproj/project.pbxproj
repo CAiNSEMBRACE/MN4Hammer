@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EEE922512CFEDB6C001BCE70 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEE922502CFEDB6C001BCE70 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EEE8DF332CF35D44008546D0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		EEE8DF212CF35D42008546D0 /* MN4Hammer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MN4Hammer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DF322CF35D44008546D0 /* MN4HammerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MN4HammerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DF3C2CF35D44008546D0 /* MN4HammerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MN4HammerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEE922502CFEDB6C001BCE70 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -46,16 +51,6 @@
 				EEC48BFF2CF59E8B006286AB /* Exceptions for "MN4Hammer" folder in "MN4Hammer" target */,
 			);
 			path = MN4Hammer;
-			sourceTree = "<group>";
-		};
-		EEE8DF352CF35D44008546D0 /* MN4HammerTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MN4HammerTests;
-			sourceTree = "<group>";
-		};
-		EEE8DF3F2CF35D44008546D0 /* MN4HammerUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MN4HammerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -88,9 +83,8 @@
 		EEE8DF182CF35D42008546D0 = {
 			isa = PBXGroup;
 			children = (
+				EEE922502CFEDB6C001BCE70 /* README.md */,
 				EEE8DF232CF35D42008546D0 /* MN4Hammer */,
-				EEE8DF352CF35D44008546D0 /* MN4HammerTests */,
-				EEE8DF3F2CF35D44008546D0 /* MN4HammerUITests */,
 				EEE8DF222CF35D42008546D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -143,9 +137,6 @@
 			dependencies = (
 				EEE8DF342CF35D44008546D0 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				EEE8DF352CF35D44008546D0 /* MN4HammerTests */,
-			);
 			name = MN4HammerTests;
 			packageProductDependencies = (
 			);
@@ -165,9 +156,6 @@
 			);
 			dependencies = (
 				EEE8DF3E2CF35D44008546D0 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EEE8DF3F2CF35D44008546D0 /* MN4HammerUITests */,
 			);
 			name = MN4HammerUITests;
 			packageProductDependencies = (
@@ -225,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE922512CFEDB6C001BCE70 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+    <key>NSHumanReadableCopyright</key>
+    <string>用于辅助操作其他应用</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>应用需要捕捉快捷键来提供操作功能</string>
+</dict>
 </plist>

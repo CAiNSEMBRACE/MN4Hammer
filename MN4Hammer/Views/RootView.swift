@@ -10,7 +10,7 @@ import SwiftUI
 struct RootView: View {
     var body: some View {
         NavigationSplitView {
-            //侧边栏
+            // 侧边栏
             List {
                 NavigationLink("Debug", destination: DebugView())
                 NavigationLink("信息", destination: InfoView())

@@ -7,7 +7,7 @@
 
 import os
 
-struct LogHelper {
+enum LogHelper {
     private static let logger = Logger(subsystem: "com.mn4hammer.app", category: "General")
 
     static func logDebug(_ message: String) {
