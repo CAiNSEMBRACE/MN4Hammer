@@ -355,32 +355,6 @@ final class BackgroundTaskManager {
         return true
     }
 
-    /// 尝试更新窗口缓存, 进程开启但是可能窗口为空
-    private func updateWindowCache() -> Bool {
-        if !isTargetAppRunning {
-            print("app未运行!")
-            return false
-        }
-        // 检查app缓存是否可用
-        var app = elementCacheManager.getElement(forKey: "AXApplication")
-        // 如果可用则通过app更新
-
-        // 否则重新获取app并更新
-        return true
-    }
-
-    /// 尝试更新手写工具栏
-    private func updateWriteToolButtonsCache() -> Bool {
-        // 尝试获取窗口缓存, 并检查缓存是否可用
-
-        // 如果缓存可用则直接获取
-
-        // 否则检查app缓存是否可用,如果可用则通过app获取window并更新
-
-        // 通过获取的window获取button更新缓存
-        return false
-    }
-
     private func clearAllElementCache() {
         elementCacheManager.clearWindowCache()
         elementCacheManager.clearButtonCache()

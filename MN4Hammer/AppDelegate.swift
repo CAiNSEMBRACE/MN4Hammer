@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // 其他初始化逻辑
         appManager = AppManager()
-        appManager?.start()
+        appManager?.start() // 使用"?", 如果初始化失败不会执行代码
     }
 
     func applicationWillTerminate(_: Notification) {

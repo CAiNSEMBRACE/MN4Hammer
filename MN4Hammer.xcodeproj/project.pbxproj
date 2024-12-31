@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE9F43592D04079100FEDC8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE9F43542D04079100FEDC8F /* Assets.xcassets */; };
+		EE9F435B2D04079100FEDC8F /* LogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43412D04079100FEDC8F /* LogHelper.swift */; };
+		EE9F435C2D04079100FEDC8F /* AccessibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43432D04079100FEDC8F /* AccessibilityManager.swift */; };
+		EE9F435D2D04079100FEDC8F /* ElementCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43442D04079100FEDC8F /* ElementCacheManager.swift */; };
+		EE9F435E2D04079100FEDC8F /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43472D04079100FEDC8F /* AppManager.swift */; };
+		EE9F435F2D04079100FEDC8F /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43482D04079100FEDC8F /* BackgroundTaskManager.swift */; };
+		EE9F43602D04079100FEDC8F /* CrashReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43492D04079100FEDC8F /* CrashReporter.swift */; };
+		EE9F43612D04079100FEDC8F /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F434A2D04079100FEDC8F /* ErrorManager.swift */; };
+		EE9F43622D04079100FEDC8F /* ShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F434B2D04079100FEDC8F /* ShortcutManager.swift */; };
+		EE9F43632D04079100FEDC8F /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F434E2D04079100FEDC8F /* DebugView.swift */; };
+		EE9F43642D04079100FEDC8F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F434F2D04079100FEDC8F /* InfoView.swift */; };
+		EE9F43652D04079100FEDC8F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43502D04079100FEDC8F /* RootView.swift */; };
+		EE9F43662D04079100FEDC8F /* ShortcutBindingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43512D04079100FEDC8F /* ShortcutBindingView.swift */; };
+		EE9F43672D04079100FEDC8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43532D04079100FEDC8F /* AppDelegate.swift */; };
+		EE9F43682D04079100FEDC8F /* MN4HammerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F43572D04079100FEDC8F /* MN4HammerApp.swift */; };
 		EEE922512CFEDB6C001BCE70 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEE922502CFEDB6C001BCE70 /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -28,32 +43,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE9F43412D04079100FEDC8F /* LogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogHelper.swift; sourceTree = "<group>"; };
+		EE9F43432D04079100FEDC8F /* AccessibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityManager.swift; sourceTree = "<group>"; };
+		EE9F43442D04079100FEDC8F /* ElementCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementCacheManager.swift; sourceTree = "<group>"; };
+		EE9F43472D04079100FEDC8F /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		EE9F43482D04079100FEDC8F /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
+		EE9F43492D04079100FEDC8F /* CrashReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashReporter.swift; sourceTree = "<group>"; };
+		EE9F434A2D04079100FEDC8F /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		EE9F434B2D04079100FEDC8F /* ShortcutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutManager.swift; sourceTree = "<group>"; };
+		EE9F434E2D04079100FEDC8F /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		EE9F434F2D04079100FEDC8F /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		EE9F43502D04079100FEDC8F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		EE9F43512D04079100FEDC8F /* ShortcutBindingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutBindingView.swift; sourceTree = "<group>"; };
+		EE9F43532D04079100FEDC8F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EE9F43542D04079100FEDC8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE9F43552D04079100FEDC8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE9F43562D04079100FEDC8F /* MN4Hammer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MN4Hammer.entitlements; sourceTree = "<group>"; };
+		EE9F43572D04079100FEDC8F /* MN4HammerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MN4HammerApp.swift; sourceTree = "<group>"; };
 		EEE8DF212CF35D42008546D0 /* MN4Hammer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MN4Hammer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DF322CF35D44008546D0 /* MN4HammerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MN4HammerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE8DF3C2CF35D44008546D0 /* MN4HammerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MN4HammerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEE922502CFEDB6C001BCE70 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		EEC48BFF2CF59E8B006286AB /* Exceptions for "MN4Hammer" folder in "MN4Hammer" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = EEE8DF202CF35D42008546D0 /* MN4Hammer */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		EEE8DF232CF35D42008546D0 /* MN4Hammer */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				EEC48BFF2CF59E8B006286AB /* Exceptions for "MN4Hammer" folder in "MN4Hammer" target */,
-			);
-			path = MN4Hammer;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EEE8DF1E2CF35D42008546D0 /* Frameworks */ = {
@@ -80,11 +91,83 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE9F43422D04079100FEDC8F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EE9F43412D04079100FEDC8F /* LogHelper.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EE9F43452D04079100FEDC8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EE9F43422D04079100FEDC8F /* Utilities */,
+				EE9F43432D04079100FEDC8F /* AccessibilityManager.swift */,
+				EE9F43442D04079100FEDC8F /* ElementCacheManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EE9F43462D04079100FEDC8F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EE9F434C2D04079100FEDC8F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EE9F43472D04079100FEDC8F /* AppManager.swift */,
+				EE9F43482D04079100FEDC8F /* BackgroundTaskManager.swift */,
+				EE9F43492D04079100FEDC8F /* CrashReporter.swift */,
+				EE9F434A2D04079100FEDC8F /* ErrorManager.swift */,
+				EE9F434B2D04079100FEDC8F /* ShortcutManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EE9F434D2D04079100FEDC8F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EE9F43522D04079100FEDC8F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EE9F434E2D04079100FEDC8F /* DebugView.swift */,
+				EE9F434F2D04079100FEDC8F /* InfoView.swift */,
+				EE9F43502D04079100FEDC8F /* RootView.swift */,
+				EE9F43512D04079100FEDC8F /* ShortcutBindingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EE9F43582D04079100FEDC8F /* MN4Hammer */ = {
+			isa = PBXGroup;
+			children = (
+				EE9F43572D04079100FEDC8F /* MN4HammerApp.swift */,
+				EE9F43532D04079100FEDC8F /* AppDelegate.swift */,
+				EE9F43522D04079100FEDC8F /* Views */,
+				EE9F434D2D04079100FEDC8F /* ViewModels */,
+				EE9F434C2D04079100FEDC8F /* Services */,
+				EE9F43452D04079100FEDC8F /* Models */,
+				EE9F43462D04079100FEDC8F /* Preview Content */,
+				EE9F43542D04079100FEDC8F /* Assets.xcassets */,
+				EE9F43552D04079100FEDC8F /* Info.plist */,
+				EE9F43562D04079100FEDC8F /* MN4Hammer.entitlements */,
+			);
+			path = MN4Hammer;
+			sourceTree = "<group>";
+		};
 		EEE8DF182CF35D42008546D0 = {
 			isa = PBXGroup;
 			children = (
 				EEE922502CFEDB6C001BCE70 /* README.md */,
-				EEE8DF232CF35D42008546D0 /* MN4Hammer */,
+				EE9F43582D04079100FEDC8F /* MN4Hammer */,
 				EEE8DF222CF35D42008546D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,9 +196,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				EEE8DF232CF35D42008546D0 /* MN4Hammer */,
 			);
 			name = MN4Hammer;
 			packageProductDependencies = (
@@ -213,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9F43592D04079100FEDC8F /* Assets.xcassets in Resources */,
 				EEE922512CFEDB6C001BCE70 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +319,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9F435B2D04079100FEDC8F /* LogHelper.swift in Sources */,
+				EE9F435C2D04079100FEDC8F /* AccessibilityManager.swift in Sources */,
+				EE9F435D2D04079100FEDC8F /* ElementCacheManager.swift in Sources */,
+				EE9F435E2D04079100FEDC8F /* AppManager.swift in Sources */,
+				EE9F435F2D04079100FEDC8F /* BackgroundTaskManager.swift in Sources */,
+				EE9F43602D04079100FEDC8F /* CrashReporter.swift in Sources */,
+				EE9F43612D04079100FEDC8F /* ErrorManager.swift in Sources */,
+				EE9F43622D04079100FEDC8F /* ShortcutManager.swift in Sources */,
+				EE9F43632D04079100FEDC8F /* DebugView.swift in Sources */,
+				EE9F43642D04079100FEDC8F /* InfoView.swift in Sources */,
+				EE9F43652D04079100FEDC8F /* RootView.swift in Sources */,
+				EE9F43662D04079100FEDC8F /* ShortcutBindingView.swift in Sources */,
+				EE9F43672D04079100FEDC8F /* AppDelegate.swift in Sources */,
+				EE9F43682D04079100FEDC8F /* MN4HammerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
